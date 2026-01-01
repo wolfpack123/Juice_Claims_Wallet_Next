@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  cardContainer,
+  cardBase,
   sectionTitle,
   tableCell,
   tableRowBorder,
@@ -11,7 +11,7 @@ import {
 export function RecentTransactionsTable() {
   return (
     <div className="max-w-5xl mx-auto mb-16">
-      <div className={`${cardContainer} p-8`}>
+      <div className={`${cardBase} p-8`}>
         <h2 className={sectionTitle}>Recent Transactions</h2>
 
         <div className="overflow-x-auto">
