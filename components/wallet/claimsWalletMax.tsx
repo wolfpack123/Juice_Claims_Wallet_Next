@@ -1,10 +1,8 @@
-'use client';
-
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Header } from '../components/layout/header';
-import { ChatBubble } from '../components/chat/chatBubble';
+import { Header } from '../../components/layout/header';
+import { ChatBubble } from '../../components/chat/chatBubble';
 import {
   Shield,
   Clock,
@@ -27,12 +25,12 @@ import {
   AlertTriangle,
   Check
 } from 'lucide-react';
-import { HelpSidebarBase } from '../components/sidebar/helpSideBarBase';
+import { HelpSidebarBase } from '../../components/sidebar/helpSideBarBase';
 // import { claimsWalletPlusHelp } from '../data/pageHelpContent';
-// import { PageHelpButton } from '../components/PageHelpButton';
-import { ClaimsWalletCardPlus } from '../components/wallet/claimsWalletCardPlus';
+import { PageHelpButton } from '../../components/buttons/pageHelpButton';
+import { ClaimsWalletCardPlus } from '../../components/wallet/claimsWalletCardPlus';
 
-export default function ClaimsWalletMax() {
+export function ClaimsWalletMax() {
   const { t } = useTranslation();
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showOTPModal, setShowOTPModal] = useState(false);
@@ -414,12 +412,12 @@ export default function ClaimsWalletMax() {
       </main>
 
       {/* Fixed position help button */}
-      {/* <div className="fixed top-20 right-4 z-40">
+      <div className="fixed top-20 right-4 z-40">
         <PageHelpButton 
           onClick={toggleHelpSidebar}
           isOpen={isHelpOpen}
         />
-      </div> */}
+      </div>
 
       {/* Page-specific help sidebar */}
       {/* <HelpSidebarBase 
