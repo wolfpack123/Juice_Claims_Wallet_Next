@@ -1,40 +1,50 @@
-import React from 'react';
-import { Moon, Sun } from 'lucide-react';
-// import { cn } from '../lib/utils';
+import React from "react";
+import { Sun, Moon } from "lucide-react";
 
-interface ThemeToggleProps {
-  className?: string;
-}
+export function ThemeToggle() {
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
 
-export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
-  const [isChanging, setIsChanging] = React.useState(false);
-
+  // Sync initial theme from DOM
   React.useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
+    const root = document.documentElement;
+    if (root.classList.contains("dark")) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, []);
+
+  // Apply theme
+  React.useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove("light", "dark");
     root.classList.add(theme);
   }, [theme]);
 
-  const handleThemeChange = () => {
-    setIsChanging(true);
-    setTheme(theme === 'light' ? 'dark' : 'light');
-    setTimeout(() => setIsChanging(false), 300); // Match the transition duration
+  const toggle = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
     <button
-      onClick={handleThemeChange}
-      // className={cn(
-      //   "relative w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50",
-      //   isChanging && "pointer-events-none",
-      //   className
-      // )}
+      onClick={toggle}
       aria-label="Toggle theme"
-      disabled={isChanging}
+      className="relative w-8 h-8 flex items-center justify-center"
     >
-      <Sun className="absolute inset-0 h-full w-full transition-all duration-300 opacity-100 rotate-0 dark:opacity-0 dark:-rotate-90" />
-      <Moon className="absolute inset-0 h-full w-full transition-all duration-300 opacity-0 rotate-90 dark:opacity-100 dark:rotate-0" />
+      <Sun
+        className="
+          absolute h-5 w-5 transition-all duration-300
+          rotate-0 scale-100 opacity-100
+          dark:-rotate-90 dark:scale-0 dark:opacity-0
+        "
+      />
+      <Moon
+        className="
+          absolute h-5 w-5 transition-all duration-300
+          rotate-90 scale-0 opacity-0
+          dark:rotate-0 dark:scale-100 dark:opacity-100
+        "
+      />
     </button>
   );
 }
