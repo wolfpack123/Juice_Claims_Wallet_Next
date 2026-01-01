@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@n8n/chat": "^1.2.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
     "i18next": "^25.7.3",
     "lucide-react": "^0.562.0",
