@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, easeIn, easeOut } from 'framer-motion';
 import { X, HelpCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 
 interface HelpItem {
@@ -192,7 +192,7 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
             initial="closed"
             animate="open"
             exit="closed"
-            variants={backdropVariants}
+            // variants={backdropVariants}
             key="backdrop"
           />
           
@@ -200,7 +200,7 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
             ref={sidebarRef}
             className="fixed top-5 right-5 bottom-5 rounded-lg bg-white dark:bg-gray-900 shadow-xl flex flex-col overflow-hidden origin-top-right z-50"
             style={{ width: `${width}px` }}
-            variants={sidebarVariants}
+            // variants={sidebarVariants}
             initial="closed"
             animate="open"
             exit="closed"
