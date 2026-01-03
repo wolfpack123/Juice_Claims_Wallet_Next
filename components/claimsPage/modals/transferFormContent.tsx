@@ -1,9 +1,9 @@
 'use client';
 
 import { DollarSign, Clock, Shield, ArrowRight, X, Wallet } from 'lucide-react';
-// import { BankTransferForm } from './BankTransferForm';
-// import { CardTransferForm } from './CardTransferForm';
-// import { CheckTransferForm } from './CheckTransferForm';
+import { BankTransferForm } from './bankTransferForm';
+import { CardTransferForm } from './cardTransferForm';
+import { CheckTransferForm } from './checkTransferForm';
 
 interface PaymentMethod {
   id: string;
@@ -89,9 +89,9 @@ export function TransferFormContent({
         </div>
       </div>
 
-      {/* {modalPaymentMethod === paymentMethods[2].name && <BankTransferForm />}
+      {modalPaymentMethod === paymentMethods[2].name && <BankTransferForm />}
       {modalPaymentMethod === paymentMethods[1].name && <CardTransferForm />}
-      {modalPaymentMethod === paymentMethods[3].name && <CheckTransferForm />} */}
+      {modalPaymentMethod === paymentMethods[3].name && <CheckTransferForm />}
 
       <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
         <div className="flex items-center gap-2">
