@@ -1,22 +1,29 @@
 @import "tailwindcss";
-
+@variant dark (&:is(.dark, .dark *));
 /* LIGHT MODE */
 :root {
-  --background: 255 255 255;
+  --background: 226 232 240;
   --foreground: 23 23 23;
+
+  --header: 255 255 255;    
 }
 
 /* DARK MODE */
 .dark {
   --background: 10 10 10;
   --foreground: 237 237 237;
+
+  --header: 15 23 42;
 }
 
-/* Map variables to Tailwind colors */
+
 @theme inline {
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
+
+  --color-header: rgb(var(--header));
 }
+
 
 body {
   background-color: var(--color-background);

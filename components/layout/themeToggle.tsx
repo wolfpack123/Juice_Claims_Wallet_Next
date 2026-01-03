@@ -1,28 +1,28 @@
+'use client';
+
 import React from "react";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const [isDark, setIsDark] = React.useState(false);
 
-  // Sync initial theme from DOM
+  // Sync initial state
   React.useEffect(() => {
     const root = document.documentElement;
-    if (root.classList.contains("dark")) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    root.classList.remove("light");
+    setIsDark(root.classList.contains("dark"));
   }, []);
 
-  // Apply theme
-  React.useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-  }, [theme]);
-
   const toggle = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    const root = document.documentElement;
+
+    if (root.classList.contains("dark")) {
+      root.classList.remove("dark"); 
+      setIsDark(false);
+    } else {
+      root.classList.add("dark"); 
+      setIsDark(true);
+    }
   };
 
   return (
@@ -32,18 +32,16 @@ export function ThemeToggle() {
       className="relative w-8 h-8 flex items-center justify-center"
     >
       <Sun
-        className="
+        className={`
           absolute h-5 w-5 transition-all duration-300
-          rotate-0 scale-100 opacity-100
-          dark:-rotate-90 dark:scale-0 dark:opacity-0
-        "
+          ${isDark ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"}
+        `}
       />
       <Moon
-        className="
+        className={`
           absolute h-5 w-5 transition-all duration-300
-          rotate-90 scale-0 opacity-0
-          dark:rotate-0 dark:scale-100 dark:opacity-100
-        "
+          ${isDark ? "rotate-0 scale-100 opacity-100" : "rotate-90 scale-0 opacity-0"}
+        `}
       />
     </button>
   );

@@ -6,14 +6,14 @@ export function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const languages = [
-    { code: 'en', name: t('languages.en') },
-    { code: 'zh', name: t('languages.zh') },
-    { code: 'pt', name: t('languages.pt') },
-    { code: 'es', name: t('languages.es') },
-    { code: 'fr', name: t('languages.fr') },
-    { code: 'ja', name: t('languages.ja') }
-  ];
+ const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'pt', name: 'Português' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'ja', name: '日本語' },
+];
 
   const handleLanguageChange = async (langCode: string) => {
     await i18n.changeLanguage(langCode);
@@ -31,7 +31,7 @@ export function LanguageSwitcher() {
         className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900"
       >
         <Globe className="h-4 w-4" />
-        <span>{languages.find(lang => lang.code === i18n.language)?.name || t('languages.en')}</span>
+        <span>{languages.find(lang => lang.code === i18n.language)?.name || 'English'}</span>
       </button>
 
       {isOpen && (

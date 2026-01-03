@@ -27,7 +27,7 @@ export function VirtualCardOption({ onSelect, variants }: VirtualCardOptionProps
         {/* Card visual */}
         <div className="w-[200px] h-[120px] rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex-shrink-0 shadow-lg relative">
           <img
-            src="/Juice-2024-Logo-2000x800.png"
+            src="/assets/JuiceWallet.png"
             alt="Juice Financial"
             className="h-6 absolute top-2 left-2"
           />

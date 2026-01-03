@@ -178,8 +178,10 @@ export default function ClaimsWalletMax() {
             initial="hidden"
             animate="visible"
           >
-            <h2 className="text-2xl font-bold mb-8 text-center">Select Payment Method</h2>
-            
+            <h2 className="text-2xl font-bold mb-8 text-center gradient-heading">
+              Select Payment Method
+            </h2>
+
             <div className="grid md:grid-cols-2 gap-6">
               <VirtualCardOption 
                 onSelect={handleSelectPaymentMethod}
