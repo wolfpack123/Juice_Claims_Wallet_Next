@@ -156,7 +156,7 @@ export default function ClaimsWalletMax() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--color-background)]">
+    <div className="min-h-screen flex flex-col bg-[#F7F9FF] dark:bg-gray-950">
       <Header />
 
       <main className="flex-grow pt-24">

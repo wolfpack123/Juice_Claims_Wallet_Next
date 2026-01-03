@@ -5,7 +5,7 @@
   --background: 226 232 240;
   --foreground: 23 23 23;
 
-  --header: 255 255 255;    
+  --header: 249 250 251 / 0.8;  
 }
 
 /* DARK MODE */
@@ -13,7 +13,7 @@
   --background: 10 10 10;
   --foreground: 237 237 237;
 
-  --header: 15 23 42;
+  --header: 3 7 18 / 0.8; 
 }
 
 
@@ -24,6 +24,7 @@
   --color-header: rgb(var(--header));
 }
 
+.gradient-heading { background-image: linear-gradient(to right, #00adee, #4827D0); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 body {
   background-color: var(--color-background);
