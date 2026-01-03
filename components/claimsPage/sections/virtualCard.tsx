@@ -22,7 +22,7 @@ export function VirtualCardOption({ onSelect, variants }: VirtualCardOptionProps
     <motion.div className="md:col-span-2" variants={variants}>
       <button
         onClick={() => onSelect('virtual-card')}
-        className={`${cardBase} ${cardBorderPrimary} p-8 flex md:flex-row flex-col items-center text-left gap-6 group`}
+        className={`w-full bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-blue-600/50 dark:border-blue-500/30 flex md:flex-row flex-col items-center text-left gap-6 relative overflow-hidden group`}
       >
         {/* Card visual */}
         <div className="w-[200px] h-[120px] rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex-shrink-0 shadow-lg relative">

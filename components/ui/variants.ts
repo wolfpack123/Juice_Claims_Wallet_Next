@@ -57,7 +57,7 @@ export const badgeSuccess = `
    TABLE
 ========================= */
 export const sectionTitle = `
-  text-2xl font-bold mb-6
+  text-2xl font-bold mb-6 gradient-heading
 `;
 
 export const tableCell = `

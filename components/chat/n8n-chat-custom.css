@@ -1,0 +1,46 @@
+/* Custom styles for n8n chat widget */
+
+/* Adjust chat window position */
+#n8n-chat [class*="chatWindow"] {
+  bottom: 80px !important;
+  right: 20px !important;
+}
+
+/* Customize chat window size */
+#n8n-chat [class*="chatWindow"] {
+  width: 380px !important;
+  max-height: 600px !important;
+}
+
+/* Customize header colors to match your brand */
+#n8n-chat [class*="header"] {
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%) !important;
+}
+
+/* Customize message bubbles */
+#n8n-chat [class*="botMessage"] {
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+#n8n-chat [class*="userMessage"] {
+  background-color: #0066ff !important;
+  color: white !important;
+}
+
+/* Customize input field */
+#n8n-chat [class*="input"] {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+}
+
+/* Customize send button */
+#n8n-chat [class*="sendButton"] {
+  background-color: #0066ff !important;
+}
+
+/* Add shadow to chat window */
+#n8n-chat [class*="chatWindow"] {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 16px !important;
+}
