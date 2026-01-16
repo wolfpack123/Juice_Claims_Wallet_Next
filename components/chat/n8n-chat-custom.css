@@ -1,46 +1,121 @@
-/* Custom styles for n8n chat widget */
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root {
+  --bubble-size: 64px;
+  --bubble-bottom: 20px;
+  --bubble-gap: 16px;
+}
 
-/* Adjust chat window position */
-#n8n-chat [class*="chatWindow"] {
-  bottom: 80px !important;
+/* =========================================================
+   HIDE DEFAULT N8N TOGGLE
+========================================================= */
+.n8n-chat .chat-window-toggle {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   CHAT WINDOW POSITION (THE REAL FIX)
+========================================================= */
+.n8n-chat .chat-window-wrapper {
+  position: fixed !important;
+
+  /* 🔑 Bubble bottom + bubble height + gap */
+  bottom: calc(
+    var(--bubble-bottom) +
+    var(--bubble-size) +
+    var(--bubble-gap)
+  ) !important;
+
   right: 20px !important;
+  z-index: 998 !important;
+
+  /* CRITICAL */
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
-/* Customize chat window size */
-#n8n-chat [class*="chatWindow"] {
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+.n8n-chat .chat-window {
   width: 380px !important;
-  max-height: 600px !important;
+  height: 550px !important;
+  display: none;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15) !important;
 }
 
-/* Customize header colors to match your brand */
-#n8n-chat [class*="header"] {
-  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%) !important;
+.n8n-chat .chat-window.open {
+  display: flex !important;
 }
 
-/* Customize message bubbles */
-#n8n-chat [class*="botMessage"] {
-  background-color: #f3f4f6 !important;
-  color: #1f2937 !important;
+/* =========================================================
+   CHAT BUBBLE BUTTON
+========================================================= */
+.chat-button-wrapper {
+  position: fixed !important;
+  bottom: var(--bubble-bottom) !important;
+  right: 20px !important;
+
+  width: var(--bubble-size) !important;
+  height: var(--bubble-size) !important;
+
+  border-radius: 50% !important;
+  background: transparent !important;
+  border: none !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  cursor: pointer !important;
+  z-index: 1001 !important;
+  pointer-events: auto !important;
 }
 
-#n8n-chat [class*="userMessage"] {
-  background-color: #0066ff !important;
-  color: white !important;
+/* =========================================================
+   HEADER & MESSAGES
+========================================================= */
+.n8n-chat .chat-header {
+  background: #0078ff !important;
+  color: #fff !important;
 }
 
-/* Customize input field */
-#n8n-chat [class*="input"] {
-  border: 1px solid #e5e7eb !important;
+.n8n-chat .chat-message-from-bot {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.n8n-chat .chat-message-from-user {
+  background: #0078ff !important;
+  color: #fff !important;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+.n8n-chat .chat-input textarea {
   border-radius: 8px !important;
 }
 
-/* Customize send button */
-#n8n-chat [class*="sendButton"] {
-  background-color: #0066ff !important;
-}
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 640px) {
+  :root {
+    --bubble-bottom: 16px;
+    --bubble-gap: 12px;
+  }
 
-/* Add shadow to chat window */
-#n8n-chat [class*="chatWindow"] {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
-  border-radius: 16px !important;
+  .n8n-chat .chat-window-wrapper {
+    right: 16px !important;
+  }
+
+  .chat-button-wrapper {
+    right: 16px !important;
+  }
 }

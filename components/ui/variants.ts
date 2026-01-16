@@ -48,10 +48,8 @@ export const actionText = `
    BADGES
 ========================= */
 export const badgeSuccess = `
-  inline-flex items-center px-3 py-1 rounded-full text-sm
-  bg-green-50 text-green-600
-  dark:bg-green-900/30 dark:text-green-400
-`;
+  inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400
+  `;
 
 /* =========================
    TABLE

@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '@n8n/chat/style.css';
 import './n8n-chat-custom.css';
 import { ChatBubbleIcon } from '../chat/chatBubbleIcon';
 
 export function ChatBubble() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   useEffect(() => {
-    // Dynamically import createChat to avoid proxy error
     const initializeChat = async () => {
       try {
         const { createChat } = await import('@n8n/chat');
@@ -26,11 +27,24 @@ export function ChatBubble() {
               subtitle: 'Juice Financial',
               inputPlaceholder: 'Type your question...',
               getStarted: 'New Conversation',
-              footer: 'Powered by Juice Financial',
+              footer: '',
               closeButtonTooltip: 'Close chat',
             },
           },
         });
+
+        // Wait for chat to be initialized, then position and hide it
+        setTimeout(() => {
+          const chatWindow = document.querySelector('.chat-window');
+          const chatWrapper = document.querySelector('.chat-window-wrapper');
+          
+          if (chatWindow && chatWrapper) {
+            (chatWindow as HTMLElement).style.display = 'none';
+            // Ensure wrapper doesn't block the button
+            (chatWrapper as HTMLElement).style.pointerEvents = 'none';
+            (chatWindow as HTMLElement).style.pointerEvents = 'auto';
+          }
+        }, 100);
       } catch (error) {
         console.error('Failed to initialize chat:', error);
       }
@@ -39,12 +53,33 @@ export function ChatBubble() {
     initializeChat();
   }, []);
 
+  const toggleChat = () => {
+    const chatWindow = document.querySelector('.chat-window');
+    if (chatWindow) {
+      if (isChatOpen) {
+        (chatWindow as HTMLElement).style.display = 'none';
+        chatWindow.classList.remove('open');
+      } else {
+        (chatWindow as HTMLElement).style.display = 'flex';
+        chatWindow.classList.add('open');
+      }
+      setIsChatOpen(!isChatOpen);
+    }
+  };
+
   return (
-    <div id="n8n-chat" className="fixed bottom-6 right-6 z-50">
-      {/* Custom chat bubble icon - purely visual with pointer-events: none */}
-      <div className="chat-button-wrapper" aria-label="Chat button visual">
-        <ChatBubbleIcon className="w-[95%] h-[95%]" />
-      </div>
+    <div className="fixed bottom-6 right-6 z-[1000]">
+      <div id="n8n-chat" />
+      
+      {/* Custom chat bubble button - always visible */}
+      <button
+  onClick={toggleChat}
+  className="chat-button-wrapper"
+  aria-label={isChatOpen ? 'Close chat' : 'Open chat'}
+>
+  <ChatBubbleIcon className="w-[95%] h-[95%]" />
+</button>
+
     </div>
   );
 }

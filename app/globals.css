@@ -8,6 +8,17 @@
   --header: 249 250 251 / 0.8;  
 }
 
+@layer base {
+  input {
+    @apply bg-white;
+  }
+
+  .dark input {
+    @apply bg-[#3B3B3B];
+  }
+}
+
+
 /* DARK MODE */
 .dark {
   --background: 10 10 10;

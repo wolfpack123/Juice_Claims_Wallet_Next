@@ -153,7 +153,7 @@ export function Header() {
             <button
               onClick={() => setIsPaymentSolutionsOpen(!isPaymentSolutionsOpen)}
               onBlur={() => setTimeout(() => setIsPaymentSolutionsOpen(false), 200)}
-              className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 flex items-center gap-1"
             >
               PAYMENT SOLUTIONS
               <ChevronDown className="h-4 w-4" />
@@ -207,7 +207,7 @@ export function Header() {
             )}
           </div>
 
-          <a href="/rfp" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+          <a href="/rfp" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
             FAQs
           </a>
         </nav>
