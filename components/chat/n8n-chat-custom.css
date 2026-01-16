@@ -1,28 +1,18 @@
-/* =========================================================
-   VARIABLES
-========================================================= */
 :root {
   --bubble-size: 64px;
   --bubble-bottom: 20px;
   --bubble-gap: 16px;
 }
 
-/* =========================================================
-   HIDE DEFAULT N8N TOGGLE
-========================================================= */
 .n8n-chat .chat-window-toggle {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-/* =========================================================
-   CHAT WINDOW POSITION (THE REAL FIX)
-========================================================= */
 .n8n-chat .chat-window-wrapper {
   position: fixed !important;
 
-  /* 🔑 Bubble bottom + bubble height + gap */
   bottom: calc(
     var(--bubble-bottom) +
     var(--bubble-size) +
@@ -32,15 +22,11 @@
   right: 20px !important;
   z-index: 998 !important;
 
-  /* CRITICAL */
   padding: 0 !important;
   margin: 0 !important;
   transform: none !important;
 }
 
-/* =========================================================
-   CHAT WINDOW
-========================================================= */
 .n8n-chat .chat-window {
   width: 380px !important;
   height: 550px !important;
@@ -53,9 +39,6 @@
   display: flex !important;
 }
 
-/* =========================================================
-   CHAT BUBBLE BUTTON
-========================================================= */
 .chat-button-wrapper {
   position: fixed !important;
   bottom: var(--bubble-bottom) !important;
@@ -77,9 +60,6 @@
   pointer-events: auto !important;
 }
 
-/* =========================================================
-   HEADER & MESSAGES
-========================================================= */
 .n8n-chat .chat-header {
   background: #0078ff !important;
   color: #fff !important;
@@ -95,16 +75,10 @@
   color: #fff !important;
 }
 
-/* =========================================================
-   INPUT
-========================================================= */
 .n8n-chat .chat-input textarea {
   border-radius: 8px !important;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
 @media (max-width: 640px) {
   :root {
     --bubble-bottom: 16px;
